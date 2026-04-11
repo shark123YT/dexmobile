@@ -5030,6 +5030,17 @@ do
 							Selection:Set({node.Object})
 						end
 					end)
+					
+					
+					entry.MouseButton2Up:connect(function()
+						if not Option.Selectable then return end
+						
+						local node = TreeList[i + self.ScrollIndex]
+						
+						if checkMouseInGui(curSelect) then
+							rightClickMenu(node.Object)
+						end
+					end)
 					-- Mobile/Emulator Long Press Support
 					entry.TouchLongPress:connect(function(touchPositions, state)
 						if state == Enum.UserInputState.Begin then
@@ -5053,17 +5064,6 @@ do
 							rightClickMenu(node.Object)
 						end
 					end)
-					
-					entry.MouseButton2Up:connect(function()
-						if not Option.Selectable then return end
-						
-						local node = TreeList[i + self.ScrollIndex]
-						
-						if checkMouseInGui(curSelect) then
-							rightClickMenu(node.Object)
-						end
-					end)
-
 					entry.Parent = listFrame
 				end
 
